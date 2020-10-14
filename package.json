@@ -1,0 +1,28 @@
+{
+  "name": "message-hut-app",
+  "version": "1.0.0",
+  "description": "Messenger like app",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nuxt": "^2.14.6",
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MessageHut/message-hut-app.git"
+  },
+  "author": "Sébastien VÉDRINE & Jules BOURDAIS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MessageHut/message-hut-app/issues"
+  },
+  "homepage": "https://github.com/MessageHut/message-hut-app#readme"
+}
