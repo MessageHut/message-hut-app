@@ -1,15 +1,14 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  dev: process.env.NODE_ENV !== 'production',
-  serverMiddleware: [{ path: '/api', handler: '@/api/server' }],
+  serverMiddleware: ['@/api/app'],
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
-    titleTemplate: '%s - test',
-    title: 'test',
+    titleTemplate: '%s',
+    title: 'MessageHut',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
