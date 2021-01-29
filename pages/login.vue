@@ -1,7 +1,7 @@
 <template>
-  <v-row>
+  <v-row justify="center">
     <v-col md="3" class="mx-auto">
-      <v-card class="text-center">
+      <v-card class="text-center pa-4">
         <v-card-title class="justify-center my-3">
           Welcome to Message Hut
         </v-card-title>
