@@ -6,12 +6,14 @@
           Welcome to Message Hut
         </v-card-title>
         <v-card-text>
-          <v-form>
+          <v-form ref="usernameForm">
             <v-text-field
               counter="20"
               label="Enter your name"
               class="my-4"
               v-model="username"
+              :rules="usernameRules"
+              required
             >
             </v-text-field>
             <v-btn color="primary" @click="handleStartMessagingButtonClick">
@@ -30,11 +32,20 @@ export default {
   data() {
     return {
       username: '',
+      usernameRules: [
+        (v) => !!v || 'Username is required',
+        (v) =>
+          (v && v.length <= 20) || 'Username must be less than 20 characters',
+      ],
     }
   },
   methods: {
     handleStartMessagingButtonClick() {
-      this.$store.commit('setUsername', this.username)
+      const isValid = this.$refs.usernameForm.validate()
+
+      if (isValid) {
+        this.$store.commit('setUsername', this.username)
+      }
     },
   },
 }
