@@ -9,10 +9,10 @@
         <v-card-text>
           <v-form ref="usernameForm" @submit.prevent="submitUsernameForm">
             <v-text-field
+              v-model="username"
               counter="20"
               label="Enter your name"
               class="my-4"
-              v-model="username"
               :rules="usernameRules"
               required
             >
@@ -33,11 +33,6 @@ import Vue from 'vue'
 
 export default Vue.extend({
   layout: 'minimal',
-  computed: {
-    usernameForm(): Vue & { validate: () => boolean } {
-      return this.$refs.usernameForm as Vue & { validate: () => boolean }
-    },
-  },
   data() {
     const username: string = ''
     const usernameRules: Array<Function> = [
@@ -49,6 +44,11 @@ export default Vue.extend({
       username,
       usernameRules,
     }
+  },
+  computed: {
+    usernameForm(): Vue & { validate: () => boolean } {
+      return this.$refs.usernameForm as Vue & { validate: () => boolean }
+    },
   },
   methods: {
     submitUsernameForm() {
