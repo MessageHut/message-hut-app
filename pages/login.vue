@@ -6,7 +6,7 @@
           Welcome to Message Hut
         </v-card-title>
         <v-card-text>
-          <v-form ref="usernameForm">
+          <v-form ref="usernameForm" @submit.prevent="submitUsernameForm">
             <v-text-field
               counter="20"
               label="Enter your name"
@@ -16,7 +16,7 @@
               required
             >
             </v-text-field>
-            <v-btn color="primary" @click="handleStartMessagingButtonClick">
+            <v-btn color="primary" @click="submitUsernameForm">
               Start messaging
               <v-icon right>mdi-arrow-right-bold</v-icon>
             </v-btn>
@@ -40,7 +40,7 @@ export default {
     }
   },
   methods: {
-    handleStartMessagingButtonClick() {
+    submitUsernameForm() {
       const isValid = this.$refs.usernameForm.validate()
 
       if (isValid) {
