@@ -6,12 +6,14 @@
       </v-container>
     </v-main>
 
-    <v-footer app class="justify-center">
-      <span>&copy; Message Hut {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <the-footer />
   </v-app>
 </template>
 
-<script>
-export default {}
+<script lang="ts">
+import TheFooter from '~/components/layout/TheFooter.vue'
+
+export default {
+  components: { TheFooter },
+}
 </script>
