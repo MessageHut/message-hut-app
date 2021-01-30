@@ -14,10 +14,10 @@
               v-model="username"
             >
             </v-text-field>
-            <v-btn color="primary" @click="handleStartMessagingButtonClick"
-              >Start messaging
-              <v-icon right>mdi-arrow-right-bold</v-icon></v-btn
-            >
+            <v-btn color="primary" @click="handleStartMessagingButtonClick">
+              Start messaging
+              <v-icon right>mdi-arrow-right-bold</v-icon>
+            </v-btn>
           </v-form>
         </v-card-text>
       </v-card>
@@ -33,7 +33,9 @@ export default {
     }
   },
   methods: {
-    handleStartMessagingButtonClick() {},
+    handleStartMessagingButtonClick() {
+      this.$store.commit('setUsername', this.username)
+    },
   },
 }
 </script>
