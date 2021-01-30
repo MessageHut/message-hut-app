@@ -5,6 +5,7 @@
         <v-card-title class="justify-center my-3">
           Welcome to Message Hut
         </v-card-title>
+
         <v-card-text>
           <v-form ref="usernameForm" @submit.prevent="submitUsernameForm">
             <v-text-field
@@ -16,6 +17,7 @@
               required
             >
             </v-text-field>
+
             <v-btn color="primary" @click="submitUsernameForm">
               Start messaging
               <v-icon right>mdi-arrow-right-bold</v-icon>
@@ -27,27 +29,36 @@
   </v-row>
 </template>
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   layout: 'minimal',
+  computed: {
+    usernameForm(): Vue & { validate: () => boolean } {
+      return this.$refs.usernameForm as Vue & { validate: () => boolean }
+    },
+  },
   data() {
+    const username: string = ''
+    const usernameRules: Array<Function> = [
+      (v: string) => !!v || 'Username is required',
+      (v: string) =>
+        (v && v.length <= 20) || 'Username must be less than 20 characters',
+    ]
     return {
-      username: '',
-      usernameRules: [
-        (v) => !!v || 'Username is required',
-        (v) =>
-          (v && v.length <= 20) || 'Username must be less than 20 characters',
-      ],
+      username,
+      usernameRules,
     }
   },
   methods: {
     submitUsernameForm() {
-      const isValid = this.$refs.usernameForm.validate()
+      const isValid: boolean = this.usernameForm.validate()
 
       if (isValid) {
-        this.$store.commit('setUsername', this.username)
+        this.$store.commit('SET_USERNAME', this.username)
         this.$router.push('/')
       }
     },
   },
-}
+})
 </script>
