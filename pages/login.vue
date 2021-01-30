@@ -45,6 +45,7 @@ export default {
 
       if (isValid) {
         this.$store.commit('setUsername', this.username)
+        this.$router.push('/')
       }
     },
   },
