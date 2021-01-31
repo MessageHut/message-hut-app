@@ -1,7 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  serverMiddleware: ['@/api/app'],
+  serverMiddleware: {
+    '/api': '~/api',
+  },
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -66,6 +68,6 @@ export default {
   build: {},
 
   router: {
-    middleware: 'authenticated'
-  }
+    middleware: 'authenticated',
+  },
 }

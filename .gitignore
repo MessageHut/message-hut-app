@@ -95,3 +95,4 @@ sw.*
 
 # CUSTOM RULES
 .history
+.vscode
