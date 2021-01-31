@@ -1,8 +1,8 @@
-import { Request, Response, Router } from 'express'
+import { Router } from 'express'
 
 const router = Router()
 
-router.use('/hello', (_req: Request, res: Response) => {
+router.use('/hello', (_req, res) => {
   res.send('Hello world!')
 })
 
