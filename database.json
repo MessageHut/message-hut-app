@@ -1,0 +1,13 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": {"ENV": "DB_USER"},
+    "password": {"ENV": "DB_PASSWORD"}
+  },
+  "local": {
+    "driver": "pg",
+    "user": {"ENV": "DB_USER"},
+    "password": {"ENV": "DB_PASSWORD"}
+  }
+}
+  
