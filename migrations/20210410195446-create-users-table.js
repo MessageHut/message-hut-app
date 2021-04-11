@@ -14,12 +14,22 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return null;
+exports.up = async function(db) {
+  await db.createTable('users', {
+    columns: {
+      id: { type: 'bigint', unsigned: true, primaryKey: true, autoIncrement: true },
+      firstname: { type: 'string', length: 50, notNull: true },
+      lastname: { type: 'string', length: 50, notNull: true },
+      email: { type: "string", length: 50, unique: true, notNull: true },
+      created_at: { type: 'datetime', notNull: true },
+      updated_at: { type: 'datetime', notNull: true }
+    },
+    ifNotExists: true
+  })
 };
 
-exports.down = function(db) {
-  return null;
+exports.down = async function(db) {
+  await db.dropTable('users', { ifExists: true })
 };
 
 exports._meta = {
