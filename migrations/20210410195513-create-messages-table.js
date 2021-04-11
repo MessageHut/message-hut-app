@@ -14,12 +14,20 @@ exports.setup = function(options, seedLink) {
   seed = seedLink;
 };
 
-exports.up = function(db) {
-  return null;
+exports.up = async function(db) {
+  await db.createTable('messages', {
+    columns: {
+      id: { type: 'bigint', unsigned: true, primaryKey: true, autoIncrement: true },
+      content: { type: 'text', notNull: true },
+      created_at: { type: 'datetime', notNull: true },
+      updated_at: { type: 'datetime', notNull: true }
+    },
+    ifNotExists: true
+  })
 };
 
-exports.down = function(db) {
-  return null;
+exports.down = async function(db) {
+  await db.dropTable('messages', { ifExists: true })
 };
 
 exports._meta = {
